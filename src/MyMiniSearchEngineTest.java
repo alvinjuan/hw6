@@ -57,12 +57,25 @@ public class MyMiniSearchEngineTest {
     @Test
     public void testFourWord() {
         // homework
-        assertTrue(false); // place holder
+        MyMiniSearchEngine engine = new MyMiniSearchEngine(documents());
+
+        String[] inputs = {
+                "sunday hello world fun",
+                "Sunday Hello World Fun",
+        };
+        for (String word : inputs){
+            List<Integer> result = engine.search(word);
+            assertEquals(1, result.size());
+            assertEquals(List.of(5), result);
+        }
     }
 
     @Test
     public void testWordNotFound() {
         // homework
-        assertTrue(false); // place holder
+        MyMiniSearchEngine engine = new MyMiniSearchEngine(documents());
+        List<Integer> result = engine.search("");
+        assertEquals(0, result.size());
+        assertEquals(List.of(),result);
     }
 }
