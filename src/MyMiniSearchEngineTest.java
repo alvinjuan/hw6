@@ -71,6 +71,21 @@ public class MyMiniSearchEngineTest {
     }
 
     @Test
+    public void testFiveWord(){
+        // added test
+        MyMiniSearchEngine engine = new MyMiniSearchEngine(documents());
+        String inputs[] = {
+                "seattle rains hello abc world",
+                "SeAtTlE rAiNs HeLlO AbC wOrLd"
+        };
+        for (String word : inputs){
+            List<Integer> result = engine.search(word);
+            assertEquals(1, result.size());
+            assertEquals(List.of(4), result);
+        }
+    }
+
+    @Test
     public void testWordNotFound() {
         // homework
         MyMiniSearchEngine engine = new MyMiniSearchEngine(documents());
